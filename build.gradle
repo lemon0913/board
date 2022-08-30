@@ -7,6 +7,11 @@ plugins {
     id 'java'
 }
 
+// 후에 EC2에 배포하기 위해 build하는 과정에서 '앱이름.jar' 파일만 생기고, '앱이름-plain.jar' 파일은 생기지 않게 하기 위해 추가
+jar {
+    enabled = false
+}
+
 group = 'com.kiki'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
