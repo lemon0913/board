@@ -1,0 +1,52 @@
+{{>layout/header}}
+<br/>
+<div id="posts_list">
+
+    <div class="card">
+        <div class="row no-gutters">
+            <div class="col-6">
+                <p><strong>{{posts.title}}</strong></p>
+                <p><i class="bi bi-eye-fill"></i> {{posts.view}}   <i class="bi bi-chat-left-text"></i> {{#comments.size}}{{comments.size}}{{/comments.size}}</p>
+                <p>위치 : {{posts.location}}</p>
+                <p>가격 : {{posts.money}}</p>
+                <p>예약 : {{posts.reservation}}</p>
+                <p>내용 : {{posts.content}}</p>
+            </div>
+            <div class="col-6">
+                <div id="map" style="width:100%;height:400px;"></div>
+                <script>
+                    // MapOptions
+                    var map = new naver.maps.Map('map', {
+                        center: new naver.maps.LatLng({{posts.x}}, {{posts.y}}),
+                        zoom: 15,
+                    });
+
+                    // MarkerOptions
+                    var marker = new naver.maps.Marker({
+                        position: new naver.maps.LatLng({{posts.x}}, {{posts.y}}),
+                        map: map
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+    {{! Buttons }}
+    {{#user}}
+        <a href="/" role="button" class="btn btn-info bi bi-arrow-return-left"> 목록</a>
+        {{#writer}}
+            <a href="/posts/update/{{posts.id}}" role="button" class="btn btn-primary bi bi-pencil-square"> 수정</a>
+            <button type="button" onclick="" id="btn-delete" class="btn btn-danger bi bi-trash"> 삭제</button>
+        {{/writer}}
+    {{/user}}
+    {{^user}}
+        <a href="/" role="button" class="btn btn-info bi bi-arrow-return-left"> 목록</a>
+    {{/user}}
+
+    {{! Comment }}
+    {{>comment/list}}
+    {{>comment/form}}
+
+</div>
+{{>layout/footer}}

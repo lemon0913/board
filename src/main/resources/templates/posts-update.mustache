@@ -1,0 +1,52 @@
+{{>layout/header}}
+
+<h1>게시글 수정</h1>
+
+<div class="col-md-12">
+    <div class="col-md-6">
+        <form>
+            <div class="form-group">
+                <label for="id">글번호</label>
+                <!-- id는 조회만 가능, 수정 불가 -->
+                <!-- 머스테치는 객체의 필드 접근 시 점으로 구분    [ex) post.id -->
+                <input type="text" class="form-control" id="id" value="{{posts.id}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input type="text" class="form-control" id="title" value="{{posts.title}}">
+            </div>
+            <div class="form-group">
+                <label for="writer"> 작성자</label>
+                <input type="text" class="form-control" id="writer" value="{{posts.writer}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="location"> 위치</label>
+                <input type="text" class="form-control" id="location" value="{{posts.location}}">
+            </div>
+            <div class="form-group">
+                <label for="money"> 가격</label>
+                <input type="text" class="form-control" id="money" value="{{posts.money}}">
+            </div>
+            <div class="form-group">
+                <label for="reservation"> 예약</label>
+                <input type="text" class="form-control" id="reservation" value="{{posts.reservation}}">
+            </div>
+            <div class="form-group">
+                <label for="content"> 내용</label>
+                <textarea class="form-control" id="content">{{posts.content}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="x"> 경도</label>
+                <textarea class="form-control" id="x">{{posts.x}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="y"> 위도</label>
+                <textarea class="form-control" id="y">{{posts.y}}</textarea>
+            </div>
+        </form>
+        <a href="/posts/read/{{id}}" role="button" class="btn btn-info bi bi-arrow-return-left"> 취소</a>
+        <button type="button" class="btn btn-primary bi bi-pencil-square" id="btn-update">수정 완료</button>
+    </div>
+</div>
+
+{{>layout/footer}}

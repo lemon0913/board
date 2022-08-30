@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>yoshi</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ejviiyya9g"></script>
+
+    <style>
+        .container {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header"class="d-flex bd-highlight">
+    <a href="/" class="p-2 flex-grow-1 bd-highlight"><i class="bi bi-shop"></i>Yoshi</a>
+    <!-- 검색 -->
+    <form action="/posts/search" method="GET" class="form-inline p-2 bd-highlight" role="search">
+        <input type="text" name="keyword" class="form-control" id="search" placeholder="검색">
+        <button class="btn btn-success bi bi-search"></button>
+    </form>
+
+</div>
+
+<!-- 로그인 -->
+<nav id ="nav">
+    <div class="text-right">
+        {{#user}}
+            <span class="mx-3">{{user.nickname}}님 안녕하세요!</span>
+            <a href="/logout" class="btn btn-outline-dark">로그아웃</a>
+            <a href="/modify" class="btn btn-outline-dark bi bi-gear"></a>
+        {{/user}}
+        {{^user}}
+            <a href="/auth/login" role="button" class="btn btn-outline-dark bi bi-lock-fill"> 로그인</a>
+            <a href="/auth/join" role="button" class="btn btn-outline-dark bi bi-person-circle"> 회원가입</a>
+        {{/user}}
+    </div>
+</nav>
+
+<div class="container">
+
+
+
+
+
+

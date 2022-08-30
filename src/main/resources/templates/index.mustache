@@ -1,0 +1,47 @@
+{{>layout/header}}
+
+<div id="posts_list">
+
+    {{! card}}
+    {{#posts}}
+    <div class="card">
+        <div class="row no-gutters">
+            <div class="col-4">
+                <!--                    <img src="images/card-image.png" alt="" class="card-img" />-->
+            </div>
+            <div class="col-8">
+                <div class="card-body">
+                    <p><a href="/posts/read/{{id}}"><strong>{{title}}</strong></a></p>
+                    <p>{{location}}</p>
+                    <p><i class="bi bi-eye-fill"></i> {{view}}</p>
+                    <p><i class="bi bi-chat-left-text"></i> {{comment.size}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/posts}}
+
+    {{! Page }}
+    <div class="pagination justify-content-center">
+        {{#hasPrev}}
+            <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill"></a>
+        {{/hasPrev}}
+        {{^hasPrev}}
+            <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled"></a>
+        {{/hasPrev}}
+
+        {{#hasNext}}
+            <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill"></a>
+        {{/hasNext}}
+        {{^hasNext}}
+            <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill disabled"></a>
+        {{/hasNext}}
+    </div>
+
+    <div class="text-right">
+        <a href="/posts/write" role="button" class="btn btn-primary bi bi-pencil-fill">글 쓰기</a>
+    </div>
+
+</div>
+
+{{>layout/footer}}
